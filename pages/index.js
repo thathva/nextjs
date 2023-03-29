@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 const Home = () => {
   const [characters, setCharacters] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/api/hello")
+    fetch("api/hello")
   .then((response) => response.json())
   .then((data) => setCharacters(data.characters)) // update this line
   .catch((error) => console.log(error));
