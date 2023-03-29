@@ -1,10 +1,17 @@
-import { rickAndMortyMiddleware } from "./middleware";
+import { useState, useEffect } from "react";
 
-const Home = ({ characters }) => {
+const Home = () => {
+  const [characters, setCharacters] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:3000/api/hello")
+  .then((response) => response.json())
+  .then((data) => setCharacters(data.characters)) // update this line
+  .catch((error) => console.log(error));
+  }, []);
   return (
     <div className="container" style={{ 'maxWidth': '800px', 'margin': '0 auto' }}>
       <h1>Characters</h1>
-      <div className="grid" style={{ 'display': 'grid', 'grid-template-columns': 'repeat(auto-fit, minmax(200px, 1fr))', 'gap': '20px' }}>
+      <div className="grid" style={{ 'display': 'grid', 'gridTemplateColumns': 'repeat(auto-fit, minmax(200px, 1fr))', 'gap': '20px' }}>
         {characters.map((character) => (
           <div key={character.id} className="card" style={{
             'backgroundColor': '#fff',
@@ -31,11 +38,6 @@ const Home = ({ characters }) => {
       </div>
     </div>
   );
-};
-
-Home.getInitialProps = async () => {
-  const data = await rickAndMortyMiddleware();
-  return data;
 };
 
 export default Home;
