@@ -7,6 +7,7 @@ const Home = () => {
   .then((response) => response.json())
   .then((data) => setCharacters(data.characters)) // update this line
   .catch((error) => console.log(error));
+  console.log(data.next);
   }, []);
   return (
     <div className="container" style={{ 'maxWidth': '800px', 'margin': '0 auto' }}>
