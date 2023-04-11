@@ -5,9 +5,18 @@ export const config = {
 
 export default async function handler(req, res) {
   try {
-    const response = await fetch("https://rickandmortyapi.com/api/character");
-    const data = await response.json();
-    const characters = data.results;
+    const characters = [];
+    let url = 'https://rickandmortyapi.com/api/character'
+    do {
+      const response = await fetch(url);
+      const data = await response.json();
+      url = data.next;
+      characters.push(...data.results);
+    } while (url && data.pages<10);
+
+    // const response = await fetch("https://rickandmortyapi.com/api/character"); // /?page=20
+    // const data = await response.json();
+    // const characters = data.results;
     return new Response(
       JSON.stringify({
         characters
