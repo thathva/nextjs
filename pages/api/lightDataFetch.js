@@ -25,8 +25,8 @@ const pool = new Pool({
 export default async function handler(req, res) {
     try {
         const db = await pool.connect()
-        const result = await db.query('SELECT * FROM customers_small');
-        const results = { customers: (result) ? result.rows : null};
+        const result = await db.query('SELECT * FROM customers_small'); // result.rows: Array of JSON, each row is a JSON object
+        const results = { data: (result) ? result.rows : null};
         res.render('pages/index', results );
         db.release();
     } catch (error) {
