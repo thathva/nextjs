@@ -1,7 +1,7 @@
 // pages/api/hello.js
 export const config = {
   runtime: 'edge',
-  regions: 'sfo1', // only execute this function on sfo1
+  // regions: 'sfo1', // only execute this function on sfo1
 }
 
 export default async function handler(req, res) {
