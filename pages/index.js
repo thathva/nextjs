@@ -9,14 +9,14 @@ const Home = () => {
     setLoading(true)
     fetch("api/lightDataFetch")
       .then((response) => response.json())
-      .then((datas) => {
-        setCustomers(datas) // or data.customers?
+      .then((data) => {
+        setCustomers(data) // or data.customers?
         setLoading(false)
       }) // update this line
       .catch((error) => console.log(error));
   }, []);
   if (isLoading) return <p>Loading...</p>
-  if (!datas) return <p>No customer data</p>
+  if (!customers) return <p>No customer data</p>
   return (
     <div className="container" style={{ 'maxWidth': '800px', 'margin': '0 auto' }}>
       <h1>LightDataFetch</h1>
