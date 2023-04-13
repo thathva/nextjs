@@ -9,21 +9,10 @@ const Home = () => {
     // setLoading(true)
     fetch("api/lightDataFetch")
       .then((response) => response.json())
-      // ({
-        
-      //   // console.log("response.json():  ");
-      //   // console.log(response.json());
-      //   // return response.json();
-      // })
       .then((data) => {
         setCustomers(data.rows);
-        // map1 = customers.map((customer) => (
-        //   customer.club_member_status
-        // ));
-        // console.log("map1: ");
-        // console.log(map1);
         // setLoading(false)
-      }) // update this line
+      })
       .catch((error) => console.log(error));
   }, []);
   // if (isLoading) return <p>Loading...</p>

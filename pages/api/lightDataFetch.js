@@ -34,36 +34,16 @@ export default async function handler(req, res) {
     const db = await pool.connect()
     try {        
         const result = await db.query('SELECT * FROM customer_small',); // result.rows: Array of JSON, each row is a JSON object
-        // console.log("result: ");
-        // console.log(result);
-        // console.log("\n");
-        // const results = JSON.stringify({ data: (result) ? result.rows : null});
-        // const results = JSON.stringify(result.rows)
-
-        // const results = await JSON.stringify(result); // result: js object, results: string (json format)
-        // console.log("results: ");
-        // console.log(results);
-        // res.render('pages/index', results );
-
+        
+        const results = await JSON.stringify(result); // result: js object, results: string (json format)
+        console.log("results: ");
+        console.log(results);
+        
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
         res.setHeader('Cache-Control', 'max-age=180000');
-        res.send(JSON.stringify(result)); // res.send(results); // res.send('pages/index', results); // 
-        // db.release();
-        
-        // return new Promise(function(resolve, reject){........}) 
-        // return results;
-        // return new Response(
-        //     JSON.stringify({
-        //         results
-        //     }),
-        //     {
-        //         status: 200,
-        //         headers: {
-        //         'content-type': 'application/json',
-        //         },
-        //     }
-        // )
+        res.send(JSON.stringify(result)); // res.send(results); // res.send('pages/index', results); // res.render('pages/index', results );
+        db.release();
     } catch (error) {
         console.error(error);
         return new Response(
