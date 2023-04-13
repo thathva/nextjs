@@ -1,6 +1,6 @@
 // pages/api/hello.js
 export const config = {
-    runtime: 'edge',
+    //runtime: 'edge',
     // regions: 'sfo1', // only execute this function on sfo1
 }
 
