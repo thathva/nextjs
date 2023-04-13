@@ -2,10 +2,6 @@
 export const config = {
     //runtime: 'edge',
     // regions: 'sfo1', // only execute this function on sfo1
-    api: {
-      responseLimit: false,
-      // responseLimit: '8mb',
-    },
 }
 
 const {Pool} = require('pg') // or const Pool = require('pg').Pool
@@ -45,22 +41,23 @@ export default async function handler(req, res) {
         res.send(JSON.stringify(result)); // res.send(results); // res.send('pages/index', results); // res.render('pages/index', results );
         db.release();
     } catch (error) {
-        console.error(error);
-        return new Response(
-            JSON.stringify({
-                msg: error
-            }),
-            {
-                status: 500,
-                headers: {
-                'content-type': 'application/json',
-                },
-            }
-        )
+        // console.error(error);
+        // return new Response(
+        //     JSON.stringify({
+        //         msg: error
+        //     }),
+        //     {
+        //         status: 500,
+        //         headers: {
+        //         'content-type': 'application/json',
+        //         },
+        //     }
+        // )
+        console.log( error );
     } 
-    // finally {
-    //     db.release();
-    // }
+    finally {
+        db.release();
+    }
 };
 
 // export default async function handler(req, res) {
