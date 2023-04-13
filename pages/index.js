@@ -14,9 +14,9 @@ const Home = () => {
         return response.json();
       })
       .then((data) => {
-        setCustomers(data) // or data.rows or data.customers?
-        // console.log("customers: ");
-        // console.log(customers);
+        setCustomers(data.rows) // or data.rows or data.customers?
+        console.log("customers: ");
+        console.log(customers);
         // map1 = customers.map((customer) => (
         //   customer.club_member_status
         // ));
