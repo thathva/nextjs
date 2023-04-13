@@ -39,7 +39,7 @@ export default async function handler(req, res) {
         // console.log("\n");
         // const results = JSON.stringify({ data: (result) ? result.rows : null});
         // const results = JSON.stringify(result.rows)
-        const results = JSON.stringify(result); // result: js object, results: string (json format)
+        const results = await JSON.stringify(result); // result: js object, results: string (json format)
         console.log("results: ");
         console.log(results);
         // res.render('pages/index', results );
