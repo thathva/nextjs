@@ -39,14 +39,15 @@ export default async function handler(req, res) {
         // console.log("\n");
         // const results = JSON.stringify({ data: (result) ? result.rows : null});
         // const results = JSON.stringify(result.rows)
-        const results = await JSON.stringify(result); // result: js object, results: string (json format)
-        console.log("results: ");
-        console.log(results);
+
+        // const results = await JSON.stringify(result); // result: js object, results: string (json format)
+        // console.log("results: ");
+        // console.log(results);
         // res.render('pages/index', results );
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
         res.setHeader('Cache-Control', 'max-age=180000');
-        res.end(results); // res.send(results); // res.send('pages/index', results); // 
+        res.end(JSON.stringify(result)); // res.send(results); // res.send('pages/index', results); // 
         db.release();
         
         // return new Promise(function(resolve, reject){........}) 
