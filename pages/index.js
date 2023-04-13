@@ -15,13 +15,13 @@ const Home = () => {
       })
       .then((data) => {
         setCustomers(data) // or data.rows or data.customers?
-        console.log("customers: ");
-        console.log(customers);
-        map1 = customers.map((customer) => (
-          customer.club_member_status
-        ));
-        console.log("map1: ");
-        console.log(map1);
+        // console.log("customers: ");
+        // console.log(customers);
+        // map1 = customers.map((customer) => (
+        //   customer.club_member_status
+        // ));
+        // console.log("map1: ");
+        // console.log(map1);
         // setLoading(false)
       }) // update this line
       .catch((error) => console.log(error));
