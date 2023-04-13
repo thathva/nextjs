@@ -30,7 +30,9 @@ export default async function handler(req, res) {
     const db = await pool.connect()
     try {        
         const result = await db.query('SELECT * FROM customer_small',); // result.rows: Array of JSON, each row is a JSON object
-        
+        console.log("result: ");
+        console.log(result);
+        console.log("\n");
         const results = { data: (result) ? result.rows : null};
         // const results = JSON.stringify(result.rows)
         // const results = JSON.stringify(result)

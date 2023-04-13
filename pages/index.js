@@ -9,8 +9,6 @@ const Home = () => {
     // setLoading(true)
     fetch("api/lightDataFetch")
       .then((response) => {
-        console.log("response:  ");
-        console.log(response);
         return response;
         // console.log("response.json():  ");
         // console.log(response.json());
@@ -18,8 +16,6 @@ const Home = () => {
       })
       .then((data) => {
         setCustomers(data.data); // data or data.rows?
-        // console.log("customers: ");
-        // console.log(customers);
         // map1 = customers.map((customer) => (
         //   customer.club_member_status
         // ));
@@ -31,6 +27,8 @@ const Home = () => {
   }, []);
   // if (isLoading) return <p>Loading...</p>
   // if (!customers) return <p>No customer data</p>
+  if (customers) console.log(customers);
+
   return (
     <div className="container" style={{ 'maxWidth': '800px', 'margin': '0 auto' }}>
       <h1>LightDataFetch</h1>
