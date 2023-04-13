@@ -9,12 +9,14 @@ const Home = () => {
     // setLoading(true)
     fetch("api/lightDataFetch")
       .then((response) => {
-        console.log("response.json():  ")
+        console.log("response:  ");
+        console.log(response);
+        console.log("response.json():  ");
         console.log(response.json());
         return response.json();
       })
       .then((data) => {
-        setCustomers(data.rows) // or data.rows or data.customers?
+        setCustomers(data); // data or data.rows?
         console.log("customers: ");
         console.log(customers);
         // map1 = customers.map((customer) => (

@@ -11,6 +11,7 @@ const pool = new Pool({
   database: 'postgres',
   password: 'nextjsvercelswany',
   port: 5433,
+  client_encoding: 'utf8',
 });
 
 // const Pool = require('pg').Pool
@@ -31,8 +32,8 @@ export default async function handler(req, res) {
         const result = await db.query('SELECT * FROM customer_small'); // result.rows: Array of JSON, each row is a JSON object
         
         // const results = { data: (result) ? result.rows : null};
-        // const results = JSON.stringify(result.rows)
-        const results = JSON.stringify(result)
+        const results = JSON.stringify(result.rows)
+        // const results = JSON.stringify(result)
         // console.log(results);
         // res.render('pages/index', results );
         res.statusCode = 200;
