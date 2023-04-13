@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 const Home = () => {
   const [customers, setCustomers] = useState([]);
+  const resss=[];
   // const [isLoading, setLoading] = useState(false)
   // const [characters, setCharacters] = useState([]);
   
@@ -9,6 +10,7 @@ const Home = () => {
     // setLoading(true)
     fetch("api/lightDataFetch")
       .then((response) => {
+        resss = response;
         return response;
         // console.log("response.json():  ");
         // console.log(response.json());
@@ -27,7 +29,7 @@ const Home = () => {
   }, []);
   // if (isLoading) return <p>Loading...</p>
   // if (!customers) return <p>No customer data</p>
-  if (response) console.log(response);
+  if (resss) console.log(resss);
 
   return (
     <div className="container" style={{ 'maxWidth': '800px', 'margin': '0 auto' }}>
