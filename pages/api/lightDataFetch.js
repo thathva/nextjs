@@ -30,10 +30,10 @@ export default async function handler(req, res) {
     try {        
         const result = await db.query('SELECT * FROM customer_small'); // result.rows: Array of JSON, each row is a JSON object
         console.log("result: ");
-        console.log(result + "\n");
+        console.log(result);
         const results = { data: (result) ? result.rows : null};
         console.log("results data: ");
-        console.log(results.data + "\n");
+        console.log(results.data.rows + "\n");
         // console.log(result.rows);
         // const results = JSON.stringify(result.rows)
         // const results = JSON.stringify(result)
