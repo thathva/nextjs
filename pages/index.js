@@ -11,12 +11,13 @@ const Home = () => {
       .then((response) => {
         console.log("response:  ");
         console.log(response);
-        console.log("response.json():  ");
-        console.log(response.json());
-        return response.json();
+        return response;
+        // console.log("response.json():  ");
+        // console.log(response.json());
+        // return response.json();
       })
       .then((data) => {
-        setCustomers(data); // data or data.rows?
+        setCustomers(data.data); // data or data.rows?
         // console.log("customers: ");
         // console.log(customers);
         // map1 = customers.map((customer) => (
