@@ -4,7 +4,7 @@ export const config = {
     // regions: 'sfo1', // only execute this function on sfo1
 }
 
-const Pool = require('pg')
+const {Pool} = require('pg') // or const Pool = require('pg').Pool
 const pool = new Pool({
   user: 'postgres',
   host: 'applieddistsys-projectdb.cazkhelqqoe0.us-east-2.rds.amazonaws.com',
