@@ -2,16 +2,16 @@ import { useState, useEffect } from "react";
 
 const Home = () => {
   const [customers, setCustomers] = useState([]);
-  const [isLoading, setLoading] = useState(false)
+  // const [isLoading, setLoading] = useState(false)
   // const [characters, setCharacters] = useState([]);
   
   useEffect(() => {
-    setLoading(true)
+    // setLoading(true)
     fetch("api/lightDataFetch")
       .then((response) => response.json())
       .then((data) => {
         setCustomers(data) // or data.customers?
-        setLoading(false)
+        // setLoading(false)
       }) // update this line
       .catch((error) => console.log(error));
   }, []);
