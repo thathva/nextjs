@@ -34,12 +34,12 @@ export default async function handler(req, res) {
     const db = await pool.connect()
     try {        
         const result = await db.query('SELECT * FROM customer_small',); // result.rows: Array of JSON, each row is a JSON object
-        console.log("result: ");
-        console.log(result);
-        console.log("\n");
-        const results = { data: (result) ? result.rows : null};
+        // console.log("result: ");
+        // console.log(result);
+        // console.log("\n");
+        // const results = JSON.stringify({ data: (result) ? result.rows : null});
         // const results = JSON.stringify(result.rows)
-        // const results = JSON.stringify(result)
+        const results = JSON.stringify(result); // result: js object, results: string (json format)
         console.log("results: ");
         console.log(results);
         // res.render('pages/index', results );

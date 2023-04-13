@@ -2,22 +2,21 @@ import { useState, useEffect } from "react";
 
 const Home = () => {
   const [customers, setCustomers] = useState([]);
-  let resss;
   // const [isLoading, setLoading] = useState(false)
   // const [characters, setCharacters] = useState([]);
   
   useEffect(() => {
     // setLoading(true)
     fetch("api/lightDataFetch")
-      .then((response) => {
-        resss = response;
-        return response;
-        // console.log("response.json():  ");
-        // console.log(response.json());
-        // return response.json();
-      })
+      .then((response) => response.json())
+      // ({
+        
+      //   // console.log("response.json():  ");
+      //   // console.log(response.json());
+      //   // return response.json();
+      // })
       .then((data) => {
-        setCustomers(data.data); // data or data.rows?
+        setCustomers(data.rows);
         // map1 = customers.map((customer) => (
         //   customer.club_member_status
         // ));
@@ -29,7 +28,6 @@ const Home = () => {
   }, []);
   // if (isLoading) return <p>Loading...</p>
   // if (!customers) return <p>No customer data</p>
-  if (resss) console.log(resss);
 
   return (
     <div className="container" style={{ 'maxWidth': '800px', 'margin': '0 auto' }}>
@@ -39,7 +37,7 @@ const Home = () => {
         {customers.map((customer) => (
           <div key={customer.customer_id}>
             <h1>Customer ID: {customer.customer_id}</h1>
-            {/* <h2>Customer Member Status: {customer.club_member_status}</h2> */}
+            <h2>Customer Member Status: {customer.club_member_status}</h2>
             <p>Customer FashionNews Frequency: {customer.fashion_news_frequency}</p>
             <p>Customer Age: {customer.age}</p>
             <p>-----------------------------------</p>
