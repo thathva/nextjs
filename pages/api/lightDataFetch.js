@@ -55,9 +55,9 @@ export default async function handler(req, res) {
         // )
         console.log( error );
     } 
-    finally {
-        db.release();
-    }
+    // finally {
+    //     db.release();
+    // }
 };
 
 // export default async function handler(req, res) {

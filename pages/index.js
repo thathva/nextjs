@@ -6,17 +6,17 @@ const Home = () => {
   // const [characters, setCharacters] = useState([]);
   
   useEffect(() => {
-    // setLoading(true)
+    setLoading(true)
     fetch("api/lightDataFetch")
       .then((response) => response.json())
       .then((data) => {
         setCustomers(data.rows);
-        // setLoading(false)
+        setLoading(false)
       })
       .catch((error) => console.log(error));
   }, []);
-  // if (isLoading) return <p>Loading...</p>
-  // if (!customers) return <p>No customer data</p>
+  if (isLoading) return <p>Loading...</p>
+  if (!customers) return <p>No customer data</p>
 
   return (
     <div className="container" style={{ 'maxWidth': '800px', 'margin': '0 auto' }}>
