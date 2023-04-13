@@ -29,16 +29,20 @@ export default async function handler(req, res) {
     const db = await pool.connect()
     try {        
         const result = await db.query('SELECT * FROM customer_small'); // result.rows: Array of JSON, each row is a JSON object
-        // const results = { data: (result) ? result.rows : null};
+        console.log("result: ");
+        console.log(result + "\n");
+        const results = { data: (result) ? result.rows : null};
+        console.log("results: ");
+        console.log(results + "\n");
         // console.log(result.rows);
         // const results = JSON.stringify(result.rows)
-        const results = JSON.stringify(result)
+        // const results = JSON.stringify(result)
         // console.log(results);
         // res.render('pages/index', results );
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
         res.setHeader('Cache-Control', 'max-age=180000');
-        res.end('pages/index', results);
+        res.send('pages/index', results);
         db.release();
         
         // return new Promise(function(resolve, reject){........}) 

@@ -13,8 +13,8 @@ const Home = () => {
         return response.json();
       })
       .then((data) => {
-        console.log(data.rows)
-        setCustomers(data.rows) // or data.customers?
+        console.log(data) //.rows
+        setCustomers(data) // or data.rows or data.customers?
         // setLoading(false)
       }) // update this line
       .catch((error) => console.log(error));
