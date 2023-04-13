@@ -34,7 +34,7 @@ export default async function handler(req, res) {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
         res.setHeader('Cache-Control', 'max-age=180000');
-        res.send(results);
+        res.end('pages/index', results);
         db.release();
         
         // return new Promise(function(resolve, reject){........}) 
