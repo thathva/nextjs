@@ -8,8 +8,12 @@ const Home = () => {
   useEffect(() => {
     // setLoading(true)
     fetch("api/lightDataFetch")
-      .then((response) => response.json())
+      .then((response) => {
+        console.log(response.json());
+        return response.json();
+      })
       .then((data) => {
+        console.log(data)
         setCustomers(data) // or data.customers?
         // setLoading(false)
       }) // update this line

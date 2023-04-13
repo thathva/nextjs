@@ -27,9 +27,9 @@ export default async function handler(req, res) {
     try {        
         const result = await db.query('SELECT * FROM customer_small'); // result.rows: Array of JSON, each row is a JSON object
         // const results = { data: (result) ? result.rows : null};
-        console.log(result.rows);
+        // console.log(result.rows);
         const results = JSON.stringify(result.rows)
-        console.log(results);
+        // console.log(results);
         // res.render('pages/index', results );
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
