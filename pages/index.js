@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 const Home = () => {
   const [customers, setCustomers] = useState([]);
-  // const [isLoading, setLoading] = useState(false)
+  const [isLoading, setLoading] = useState(false)
   // const [characters, setCharacters] = useState([]);
   
   useEffect(() => {
