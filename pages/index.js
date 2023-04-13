@@ -10,7 +10,7 @@ const Home = () => {
     fetch("api/lightDataFetch")
       .then((response) => response.json())
       .then((data) => {
-        setCustomers(data) // or data.customers?
+        setCustomers(data.results) // or data.customers?
         // setLoading(false)
       }) // update this line
       .catch((error) => console.log(error));
