@@ -32,8 +32,8 @@ export default async function handler(req, res) {
         console.log("result: ");
         console.log(result + "\n");
         const results = { data: (result) ? result.rows : null};
-        console.log("results: ");
-        console.log(results + "\n");
+        console.log("results data: ");
+        console.log(results.data + "\n");
         // console.log(result.rows);
         // const results = JSON.stringify(result.rows)
         // const results = JSON.stringify(result)
