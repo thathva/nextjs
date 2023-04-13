@@ -27,7 +27,7 @@ const Home = () => {
   }, []);
   // if (isLoading) return <p>Loading...</p>
   // if (!customers) return <p>No customer data</p>
-  if (customers) console.log(customers);
+  if (response) console.log(response);
 
   return (
     <div className="container" style={{ 'maxWidth': '800px', 'margin': '0 auto' }}>
