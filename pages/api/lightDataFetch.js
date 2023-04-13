@@ -23,26 +23,27 @@ const pool = new Pool({
 // });
 
 export default async function handler(req, res) {
-    try {
-        const db = await pool.connect()
+    const db = await pool.connect()
+    try {        
         const result = await db.query('SELECT * FROM customer_small'); // result.rows: Array of JSON, each row is a JSON object
         const results = { data: (result) ? result.rows : null};
         // res.render('pages/index', results );
+        res.send('pages/index', results);
         db.release();
-
+        
         // return new Promise(function(resolve, reject){........}) 
         // return results;
-        return new Response(
-            JSON.stringify({
-                results
-            }),
-            {
-                status: 200,
-                headers: {
-                'content-type': 'application/json',
-                },
-            }
-        )
+        // return new Response(
+        //     JSON.stringify({
+        //         results
+        //     }),
+        //     {
+        //         status: 200,
+        //         headers: {
+        //         'content-type': 'application/json',
+        //         },
+        //     }
+        // )
     } catch (error) {
         console.error(error);
         return new Response(
@@ -56,7 +57,10 @@ export default async function handler(req, res) {
             },
         }
         )
-    }
+    } 
+    // finally {
+    //     db.release();
+    // }
 };
 
 // export default async function handler(req, res) {
