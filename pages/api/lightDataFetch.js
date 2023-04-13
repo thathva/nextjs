@@ -2,6 +2,10 @@
 export const config = {
     //runtime: 'edge',
     // regions: 'sfo1', // only execute this function on sfo1
+    api: {
+      responseLimit: false,
+      // responseLimit: '8mb',
+    },
 }
 
 const {Pool} = require('pg') // or const Pool = require('pg').Pool
@@ -43,7 +47,7 @@ export default async function handler(req, res) {
         res.setHeader('Content-Type', 'application/json');
         res.setHeader('Cache-Control', 'max-age=180000');
         res.send(results); // res.send('pages/index', results); //res.end(results); 
-        // db.release();
+        db.release();
         
         // return new Promise(function(resolve, reject){........}) 
         // return results;
