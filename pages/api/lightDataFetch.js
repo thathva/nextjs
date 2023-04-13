@@ -44,12 +44,12 @@ export default async function handler(req, res) {
         // console.log("results: ");
         // console.log(results);
         // res.render('pages/index', results );
-        
+
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
         res.setHeader('Cache-Control', 'max-age=180000');
         res.end(JSON.stringify(result)); // res.send(results); // res.send('pages/index', results); // 
-        db.release();
+        // db.release();
         
         // return new Promise(function(resolve, reject){........}) 
         // return results;
