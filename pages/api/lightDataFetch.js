@@ -22,6 +22,9 @@ const pool = new Pool({
 //   port: process.env.PGSQL_PORT,
 // });
 
+
+// query result -> .rows -> stringify -> results -> res.send(results) -> .json() -> data.results =====>>>> 
+// query result -> stringify -> results -> res.send(results) -> .json() -> data.rows
 export default async function handler(req, res) {
     const db = await pool.connect()
     try {        
