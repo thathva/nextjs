@@ -17,8 +17,8 @@ const Home = () => {
       })
       .then((data) => {
         setCustomers(data); // data or data.rows?
-        console.log("customers: ");
-        console.log(customers);
+        // console.log("customers: ");
+        // console.log(customers);
         // map1 = customers.map((customer) => (
         //   customer.club_member_status
         // ));
@@ -38,7 +38,7 @@ const Home = () => {
         {customers.map((customer) => (
           <div key={customer.customer_id}>
             <h1>Customer ID: {customer.customer_id}</h1>
-            <h2>Customer Member Status: {customer.club_member_status}</h2>
+            {/* <h2>Customer Member Status: {customer.club_member_status}</h2> */}
             <p>Customer FashionNews Frequency: {customer.fashion_news_frequency}</p>
             <p>Customer Age: {customer.age}</p>
             <p>-----------------------------------</p>
