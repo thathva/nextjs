@@ -28,9 +28,21 @@ export default async function handler(req, res) {
         const result = await db.query('SELECT * FROM customers_small'); // result.rows: Array of JSON, each row is a JSON object
         const results = { data: (result) ? result.rows : null};
         // res.render('pages/index', results );
-        // return new Promise(function(resolve, reject){........}) 
         db.release();
-        return results;
+
+        // return new Promise(function(resolve, reject){........}) 
+        // return results;
+        return new Response(
+            JSON.stringify({
+                results
+            }),
+            {
+                status: 200,
+                headers: {
+                'content-type': 'application/json',
+                },
+            }
+        )
     } catch (error) {
         console.error(error);
         return new Response(
