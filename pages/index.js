@@ -9,12 +9,19 @@ const Home = () => {
     // setLoading(true)
     fetch("api/lightDataFetch")
       .then((response) => {
+        console.log("response.json():  ")
         console.log(response.json());
         return response.json();
       })
       .then((data) => {
-        console.log(data) //.rows
         setCustomers(data) // or data.rows or data.customers?
+        console.log("customers: ");
+        console.log(customers);
+        map1 = customers.map((customer) => (
+          customer.club_member_status
+        ));
+        console.log("map1: ");
+        console.log(map1);
         // setLoading(false)
       }) // update this line
       .catch((error) => console.log(error));
