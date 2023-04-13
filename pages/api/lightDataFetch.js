@@ -26,8 +26,12 @@ export default async function handler(req, res) {
     const db = await pool.connect()
     try {        
         const result = await db.query('SELECT * FROM customer_small'); // result.rows: Array of JSON, each row is a JSON object
-        const results = { data: (result) ? result.rows : null};
+        // const results = { data: (result) ? result.rows : null};
+        const results = JSON.stringify(result.rows)
         // res.render('pages/index', results );
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.setHeader('Cache-Control', 'max-age=180000');
         res.send('pages/index', results);
         db.release();
         
@@ -47,15 +51,15 @@ export default async function handler(req, res) {
     } catch (error) {
         console.error(error);
         return new Response(
-        JSON.stringify({
-            msg: error
-        }),
-        {
-            status: 500,
-            headers: {
-            'content-type': 'application/json',
-            },
-        }
+            JSON.stringify({
+                msg: error
+            }),
+            {
+                status: 500,
+                headers: {
+                'content-type': 'application/json',
+                },
+            }
         )
     } 
     // finally {
