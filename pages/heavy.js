@@ -7,6 +7,10 @@ import Draggable from "../components/Draggable";
 import {Suspense} from "react";
 import FloorComponent from "../components/FloorComponent"
 
+export const config = {
+  runtime: 'experimental-edge',
+}
+
 export default function Heavy() {
   return (
     <div className={css.scene}>
